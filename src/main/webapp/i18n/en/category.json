@@ -1,0 +1,10 @@
+{
+  "simplifyMarketplaceApp": {
+    "Category": {
+      "null": "",
+      "HealthCare": "HealthCare",
+      "Driver": "Driver",
+      "Software": "Software"
+    }
+  }
+}

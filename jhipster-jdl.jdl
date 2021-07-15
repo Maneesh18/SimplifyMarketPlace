@@ -1,0 +1,387 @@
+entity OTP {
+ 
+    otpId Integer required,
+ 
+    email String required,
+ 
+    phone String required,
+ 
+    type OtpType,
+ 
+    expiryTime LocalDate required,
+ 
+    status OtpStatus ,
+ 
+    createdBy String required,
+ 
+    createdAt LocalDate required,
+ 
+    updatedBy String required,
+ 
+    updatedAt LocalDate required
+ 
+}
+ 
+
+ 
+entity OTPAttempt {
+ 
+    otpAttemptId Integer required,
+ 
+    email String required,
+ 
+    phone String required,
+ 
+    ip String required,
+ 
+    coookie String required,
+ 
+    createdBy String required,
+ 
+    createdAt LocalDate required
+ 
+}
+ 
+
+ 
+entity Worker {
+ 
+    name String required,
+ 
+    email String required,
+ 
+    phone String required,
+ 
+    description String ,
+ 
+    createdBy String required,
+ 
+    createdAt LocalDate required,
+ 
+    updatedBy String required,
+ 
+    updatedAt LocalDate required
+ 
+}
+ 
+
+ 
+entity JobPreference {
+ 
+    category Category required,
+ 
+    subCategory SubCategory required,
+ 
+    hourlyRate Integer required,
+ 
+    dailyRate Integer required,
+ 
+    monthlyRate Integer required,
+ 
+    hourPerDay Integer required,
+ 
+    hourPerWeek Integer required,
+ 
+    engagementType EngagementType,
+ 
+    locationType LocationType,
+ 
+    createdBy String required,
+ 
+    createdAt LocalDate required,
+ 
+    updatedBy String required,
+ 
+    updatedAt LocalDate required
+ 
+}
+ 
+
+ 
+entity PreferredCity {
+ 
+    city String required
+ 
+}
+ 
+
+ 
+entity Education {
+ 
+    degreeName String required,
+ 
+    institute String required,
+ 
+    yearOfPassing Integer required,
+ 
+    marks Float required,
+ 
+    description String,
+ 
+    createdBy String required,
+ 
+    createdAt LocalDate required,
+ 
+    updatedBy String required,
+ 
+    updatedAt LocalDate required
+ 
+}
+ 
+
+ 
+entity Employment {
+ 
+    jobTitle String required,
+ 
+    companyName String required,
+ 
+    startDate LocalDate required,
+ 
+    endDate LocalDate required,
+ 
+    lastSalary Integer required,
+ 
+    description String ,
+ 
+    category Category,
+ 
+    subCategory SubCategory,
+ 
+    createdBy String required,
+ 
+    createdAt LocalDate required,
+ 
+    updatedBy String required,
+ 
+    updatedAt LocalDate required
+ 
+}
+ 
+
+ 
+entity Address {
+ 
+    streetAddress String required,
+ 
+    postalCode Integer required,
+ 
+    city String required,
+ 
+    stateProvince String required,
+ 
+    country String required,
+ 
+    tag AddressTag,
+ 
+    createdBy String required,
+ 
+    createdAt LocalDate required,
+ 
+    updatedBy String required,
+ 
+    updatedAt LocalDate required
+ 
+}
+ 
+
+ 
+enum OtpType {
+ 
+    Email,
+ 
+    Phone,
+ 
+    Both
+ 
+}
+ 
+
+ 
+enum OtpStatus {
+ 
+    Init,
+ 
+    Verified,
+ 
+    Expired
+ 
+}
+ 
+
+ 
+
+ 
+enum Category {
+ 
+    HealthCare,
+ 
+    Driver,
+ 
+    Software
+ 
+}
+ 
+
+ 
+enum SubCategory {
+ 
+    Nurse,
+ 
+    Receptionist,
+ 
+    Opthalmologist,
+ 
+    ClinicalTrialSpecialist,
+ 
+    TwoWheeler,
+ 
+    FourWheeler,
+ 
+    HeavyVeichle,
+ 
+    Developer,
+ 
+    QA,
+ 
+    DevOps
+ 
+}
+ 
+
+ 
+enum AddressTag {
+ 
+    CurrentAddress,
+ 
+    PermanentAddress,
+ 
+    CompanyAddress
+ 
+}
+ 
+
+ 
+enum EngagementType {
+ 
+    PartTime,
+ 
+    FullTime,
+ 
+    Freelancing,
+ 
+    SelfEmployed
+ 
+}
+ 
+
+ 
+enum LocationType {
+ 
+    RemoteOnly,
+ 
+    OfficeOnly,
+ 
+    Both
+ 
+}
+ 
+
+ 
+relationship OneToMany {
+ 
+                Worker to Education{worker}
+ 
+}
+ 
+
+ 
+relationship OneToMany {
+ 
+                Worker to Employment{worker}
+ 
+}
+ 
+
+ 
+relationship OneToMany {
+ 
+                Worker to JobPreference{worker}
+ 
+}
+ 
+
+ 
+relationship OneToMany {
+ 
+                Worker to Address{worker}
+ 
+}
+ 
+
+ 
+relationship OneToMany {
+ 
+                OTP to OTPAttempt{otp}
+ 
+}
+ 
+
+ 
+relationship OneToMany {
+ 
+                Worker to OTP{worker}
+ 
+}
+ 
+
+ 
+
+ 
+relationship OneToMany {
+ 
+                JobPreference to PreferredCity{jobPreference}
+ 
+}
+ 
+
+ 
+application {
+ 
+  config {
+ 
+    baseName SimplifyMarketplace
+ 
+    applicationType monolith
+ 
+    serverPort 9001
+    
+    databaseType mongodb
+ 
+    devDatabaseType mongodb
+ 
+    prodDatabaseType mongodb
+ 
+    clientFramework react
+ 
+    clientPackageManager npm
+ 
+    authenticationType jwt
+ 
+    buildTool maven
+ 
+    enableSwaggerCodegen true
+ 
+    packageName com.simplify.marketplace
+ 
+  }
+ 
+  entities *
+ 
+  dto * with mapstruct
+ 
+  paginate * with infinite-scroll
+ 
+  service all with serviceImpl
+ 
+}

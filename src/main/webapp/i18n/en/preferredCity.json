@@ -1,0 +1,25 @@
+{
+  "simplifyMarketplaceApp": {
+    "preferredCity": {
+      "home": {
+        "title": "Preferred Cities",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Preferred City",
+        "createOrEditLabel": "Create or edit a Preferred City",
+        "notFound": "No Preferred Cities found"
+      },
+      "created": "A new Preferred City is created with identifier {{ param }}",
+      "updated": "A Preferred City is updated with identifier {{ param }}",
+      "deleted": "A Preferred City is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Preferred City {{ id }}?"
+      },
+      "detail": {
+        "title": "Preferred City"
+      },
+      "id": "ID",
+      "city": "City",
+      "jobPreference": "Job Preference"
+    }
+  }
+}

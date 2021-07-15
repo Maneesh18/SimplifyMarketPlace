@@ -1,0 +1,11 @@
+{
+  "simplifyMarketplaceApp": {
+    "EngagementType": {
+      "null": "",
+      "PartTime": "PartTime",
+      "FullTime": "FullTime",
+      "Freelancing": "Freelancing",
+      "SelfEmployed": "SelfEmployed"
+    }
+  }
+}

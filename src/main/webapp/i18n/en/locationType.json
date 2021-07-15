@@ -1,0 +1,10 @@
+{
+  "simplifyMarketplaceApp": {
+    "LocationType": {
+      "null": "",
+      "RemoteOnly": "RemoteOnly",
+      "OfficeOnly": "OfficeOnly",
+      "Both": "Both"
+    }
+  }
+}

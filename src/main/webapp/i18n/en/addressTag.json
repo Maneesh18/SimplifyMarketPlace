@@ -1,0 +1,10 @@
+{
+  "simplifyMarketplaceApp": {
+    "AddressTag": {
+      "null": "",
+      "CurrentAddress": "CurrentAddress",
+      "PermanentAddress": "PermanentAddress",
+      "CompanyAddress": "CompanyAddress"
+    }
+  }
+}

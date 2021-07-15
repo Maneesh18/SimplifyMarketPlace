@@ -1,0 +1,96 @@
+{
+  "name": "JobPreference",
+  "fields": [
+    {
+      "fieldName": "category",
+      "fieldType": "Category",
+      "fieldValues": "HealthCare,Driver,Software",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "subCategory",
+      "fieldType": "SubCategory",
+      "fieldValues": "Nurse,Receptionist,Opthalmologist,ClinicalTrialSpecialist,TwoWheeler,FourWheeler,HeavyVeichle,Developer,QA,DevOps",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "hourlyRate",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dailyRate",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "monthlyRate",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "hourPerDay",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "hourPerWeek",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "engagementType",
+      "fieldType": "EngagementType",
+      "fieldValues": "PartTime,FullTime,Freelancing,SelfEmployed"
+    },
+    {
+      "fieldName": "locationType",
+      "fieldType": "LocationType",
+      "fieldValues": "RemoteOnly,OfficeOnly,Both"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "preferredCity",
+      "otherEntityRelationshipName": "jobPreference",
+      "relationshipName": "preferredCity"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "worker",
+      "otherEntityRelationshipName": "jobPreference",
+      "relationshipName": "worker"
+    }
+  ],
+  "entityTableName": "job_preference",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["SimplifyMarketplace"],
+  "changelogDate": "20210715073059"
+}
